@@ -1,0 +1,9 @@
+The following Synchronization Actions were performed successfully:
+
+Entity :MnjMfgWashRecipeH
+  Create Attribute for column: PER_BATCH_WEIGHT
+  Create Attribute for column: WORKABLE_QUANTITY
+  Create Attribute for column: EXCESS_CUTTING_PERCENT
+  Create Attribute for column: WASH
+  Create Attribute for column: COLOR
+  Create Attribute for column: FEBRIC_TYPE

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MnjMfgShadeLVO"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  SelectList="MnjMfgShadeL.SHADE_LINE_ID, 
+       MnjMfgShadeL.HEADER_ID, 
+       MnjMfgShadeL.SHADES"
+  FromList="MNJ_MFG_WASH_RECIPE_SHADE MnjMfgShadeL"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="WashShadeVO1"
+    ViewObjectName="mnj.mfg.model.lov.views.WashShadeVO"
+    RowLevelBinds="true"/>
+  <EntityUsage
+    Name="MnjMfgShadeL"
+    Entity="mnj.mfg.model.entities.MnjMfgShadeL"/>
+  <ViewAttribute
+    Name="ShadeLineId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ShadeLineId"
+    EntityUsage="MnjMfgShadeL"
+    AliasName="SHADE_LINE_ID"/>
+  <ViewAttribute
+    Name="HeaderId"
+    PrecisionRule="true"
+    EntityAttrName="HeaderId"
+    EntityUsage="MnjMfgShadeL"
+    AliasName="HEADER_ID"/>
+  <ViewAttribute
+    Name="Shades"
+    PrecisionRule="true"
+    EntityAttrName="Shades"
+    EntityUsage="MnjMfgShadeL"
+    AliasName="SHADES"/>
+</ViewObject>

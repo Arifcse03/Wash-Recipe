@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.62.29" id="QueryPageDef"
+                Package="mnj.mfg.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="MnjMfgWashRecipeHView1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="MnjMfgWashRecipeHView1Iterator"/>
+    <searchRegion Criteria="SimpleSearch"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="MnjMfgWashRecipeHView1Iterator"
+                  id="SimpleSearchQuery"/>
+    <iterator Binds="MnjMfgWashRecipeLView1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="MnjMfgWashRecipeLView1Iterator"/>
+    <searchRegion Binds="MnjMfgWashRecipeLView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="MnjMfgWashRecipeLView1Query"/>
+    <iterator Binds="MnjMfgWashRecipeDView1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="MnjMfgWashRecipeDView1Iterator"/>
+    <searchRegion Binds="MnjMfgWashRecipeDView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="MnjMfgWashRecipeDView1Query"/>
+    <iterator Binds="OperationsPopUpVO1" RangeSize="1000"
+              DataControl="AppModuleDataControl"
+              id="OperationsPopUpVO1Iterator"/>
+    <searchRegion Binds="OperationsPopUpVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="OperationsPopUpVO1Query"/>
+    <iterator Binds="MnjMfgSubProcessVO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="MnjMfgSubProcessVO1Iterator"/>
+    <searchRegion Binds="MnjMfgSubProcessVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="MnjMfgSubProcessVO1Query"/>
+    <iterator Binds="SubProcessPopUp1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="SubProcessPopUp1Iterator"/>
+    <searchRegion Binds="SubProcessPopUp1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="SubProcessPopUp1Query"/>
+    <iterator Binds="MnjMfgShadeLVO1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="MnjMfgShadeLVO1Iterator"/>
+    <searchRegion Binds="MnjMfgShadeLVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="MnjMfgShadeLVO1Query"/>
+    <invokeAction id="setSessionVal" Binds="setSessionValues" Refresh="always"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="MnjMfgWashRecipeHView1Iterator"
+          id="MnjMfgWashRecipeHView1">
+      <nodeDefinition DefName="mnj.mfg.model.views.MnjMfgWashRecipeHView"
+                      Name="MnjMfgWashRecipeHView10">
+        <AttrNames>
+          <Item Value="DocNumber"/>
+          <Item Value="DocDate"/>
+          <Item Value="Season"/>
+          <Item Value="Brand"/>
+          <Item Value="Qty"/>
+          <Item Value="RecipeType"/>
+          <Item Value="SampleType"/>
+          <Item Value="Shade"/>
+          <Item Value="OrderNumber"/>
+          <Item Value="StnNo"/>
+          <Item Value="VersionNo"/>
+          <Item Value="VersionDate"/>
+          <Item Value="VarsionNew"/>
+          <Item Value="Bp0"/>
+          <Item Value="ShadesL"/>
+          <Item Value="WashName"/>
+          <Item Value="Color"/>
+          <Item Value="SoLineId"/>
+          <Item Value="SystemId"/>
+          <Item Value="Style"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="MnjMfgWashRecipeHView1Iterator"
+                     id="DocNumber">
+      <AttrNames>
+        <Item Value="DocNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgWashRecipeHView1Iterator" id="DocDate">
+      <AttrNames>
+        <Item Value="DocDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgWashRecipeHView1Iterator" id="Qty">
+      <AttrNames>
+        <Item Value="Qty"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="MnjMfgWashRecipeLView1Iterator"
+          id="MnjMfgWashRecipeLView1">
+      <nodeDefinition DefName="mnj.mfg.model.views.MnjMfgWashRecipeLView"
+                      Name="MnjMfgWashRecipeLView10">
+        <AttrNames>
+          <Item Value="MinorOperations"/>
+          <Item Value="MajorOperations"/>
+          <Item Value="Smv"/>
+          <Item Value="Temperature"/>
+          <Item Value="Water"/>
+          <Item Value="MinTime"/>
+          <Item Value="Seq"/>
+          <Item Value="Intensity"/>
+          <Item Value="WashType"/>
+          <Item Value="Remarks"/>
+          <Item Value="PerBatchQuantity"/>
+          <Item Value="NumberBatches"/>
+          <Item Value="Comments"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="MnjMfgWashRecipeDView1Iterator"
+          id="MnjMfgWashRecipeDView1">
+      <nodeDefinition DefName="mnj.mfg.model.views.MnjMfgWashRecipeDView"
+                      Name="MnjMfgWashRecipeDView10">
+        <AttrNames>
+          <Item Value="Uom"/>
+          <Item Value="PerBatchQty"/>
+          <Item Value="PerBatchCons"/>
+          <Item Value="ItemCode"/>
+          <Item Value="Description"/>
+          <Item Value="TotalCons"/>
+          <Item Value="Dosage"/>
+          <Item Value="DosagePerc"/>
+          <Item Value="PhValue"/>
+          <Item Value="WaterRatio"/>
+          <Item Value="PcsPerItem"/>
+          <Item Value="Remarks"/>
+          <Item Value="TotalConsumption"/>
+          <Item Value="Unit"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="MnjMfgWashRecipeLView1Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="MnjMfgWashRecipeLView1Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="MnjMfgWashRecipeDView1Iterator" id="CreateInsert1"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="MnjMfgWashRecipeDView1Iterator" id="Delete1"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="MnjMfgWashRecipeHView1Iterator" id="CreateInsert2"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="AppModuleDataControl"/>
+    <listOfValues StaticList="false"
+                  IterBinding="MnjMfgWashRecipeHView1Iterator" Uses="LOV_StnNo"
+                  id="StnNo"/>
+    <attributeValues IterBinding="MnjMfgWashRecipeHView1Iterator"
+                     id="CustomerName">
+      <AttrNames>
+        <Item Value="CustomerName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgWashRecipeHView1Iterator"
+                     id="SaleOrderId">
+      <AttrNames>
+        <Item Value="SaleOrderId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgWashRecipeHView1Iterator" id="SoLineId">
+      <AttrNames>
+        <Item Value="SoLineId"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="fetchMethod"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="fetchMethod"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="lineId" NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="MnjMfgWashRecipeHView1Iterator"
+                     id="NumberBatches">
+      <AttrNames>
+        <Item Value="NumberBatches"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgWashRecipeHView1Iterator"
+                     id="PerBatchQuantity">
+      <AttrNames>
+        <Item Value="PerBatchQuantity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgWashRecipeHView1Iterator" id="Division">
+      <AttrNames>
+        <Item Value="Division"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgWashRecipeHView1Iterator"
+                     id="PerBatchWeight">
+      <AttrNames>
+        <Item Value="PerBatchWeight"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgWashRecipeHView1Iterator"
+                     id="FebricType">
+      <AttrNames>
+        <Item Value="FebricType"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues StaticList="false"
+                  IterBinding="MnjMfgWashRecipeHView1Iterator"
+                  Uses="LOV_SearchStn" id="SearchStn"/>
+    <methodAction id="copyMethod"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="copyMethod"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="stn" NDValue="#{bindings.HeaderIdTemp.inputValue}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="MnjMfgWashRecipeHView1Iterator" id="HeaderId">
+      <AttrNames>
+        <Item Value="HeaderId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgWashRecipeHView1Iterator"
+                     id="HeaderIdTemp">
+      <AttrNames>
+        <Item Value="HeaderIdTemp"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues StaticList="false"
+                  IterBinding="MnjMfgWashRecipeHView1Iterator"
+                  Uses="LOV_RecipeType" id="RecipeType"/>
+    <listOfValues StaticList="false"
+                  IterBinding="MnjMfgWashRecipeHView1Iterator"
+                  Uses="LOV_SampleType" id="SampleType"/>
+    <tree IterBinding="OperationsPopUpVO1Iterator" id="OperationsPopUpVO1">
+      <nodeDefinition DefName="mnj.mfg.model.lov.views.OperationsPopUpVO"
+                      Name="OperationsPopUpVO10">
+        <AttrNames>
+          <Item Value="MajorOperation"/>
+          <Item Value="MinorOperation"/>
+          <Item Value="Sam"/>
+          <Item Value="Flag" Binds="Flag"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <button IterBinding="OperationsPopUpVO1Iterator" id="Flag"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="Flag"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <methodAction id="populateOperations"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="populateOperations"
+                  IsViewObjectMethod="false"/>
+    <tree IterBinding="MnjMfgSubProcessVO1Iterator" id="MnjMfgSubProcessVO1">
+      <nodeDefinition DefName="mnj.mfg.model.views.MnjMfgSubProcessVO"
+                      Name="MnjMfgSubProcessVO10">
+        <AttrNames>
+          <Item Value="SubProcess"/>
+          <Item Value="Remarks"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="MnjMfgSubProcessVO1Iterator" id="Delete3"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="SubProcessPopUp1Iterator" id="SubProcessPopUp1">
+      <nodeDefinition DefName="mnj.mfg.model.views.SubProcessPopUp"
+                      Name="SubProcessPopUp10">
+        <AttrNames>
+          <Item Value="MajorOperations"/>
+          <Item Value="MinorOperation"/>
+          <Item Value="SubProcess"/>
+          <Item Value="Selection" Binds="Selection"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <button IterBinding="SubProcessPopUp1Iterator" id="Selection"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="Selection"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <methodAction id="populateSubProcess"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="populateSubProcess"
+                  IsViewObjectMethod="false"/>
+    <methodAction id="WhereClauseSubProcess"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="WhereClauseSubProcess"
+                  IsViewObjectMethod="false"/>
+    <tree IterBinding="MnjMfgShadeLVO1Iterator" id="MnjMfgShadeLVO1">
+      <nodeDefinition DefName="mnj.mfg.model.views.MnjMfgShadeLVO"
+                      Name="MnjMfgShadeLVO10">
+        <AttrNames>
+          <Item Value="Shades"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="MnjMfgShadeLVO1Iterator" id="CreateInsert3"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="MnjMfgShadeLVO1Iterator" id="Delete4"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <methodAction id="VersionCreation"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="VersionCreation"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.AppModuleDataControl.methodResults.VersionCreation_AppModuleDataControl_dataProvider_VersionCreation_result"/>
+    <attributeValues IterBinding="MnjMfgWashRecipeHView1Iterator"
+                     id="ActualReceiptQty">
+      <AttrNames>
+        <Item Value="ActualReceiptQty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgWashRecipeHView1Iterator"
+                     id="VarsionNew">
+      <AttrNames>
+        <Item Value="VarsionNew"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="popupDeselectActionListener"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="popupDeselectActionListener"
+                  IsViewObjectMethod="false"/>
+    <methodAction id="popupSelectActionListener"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="popupSelectActionListener"
+                  IsViewObjectMethod="false"/>
+    <attributeValues IterBinding="MnjMfgWashRecipeHView1Iterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="Delete_Header"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="Delete_Header"
+                  IsViewObjectMethod="false"/>
+    <methodAction id="Commit1" InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="Commit"
+                  IsViewObjectMethod="false"/>
+    <methodAction id="Copy_Fields_To_Lines"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="Copy_Fields_To_Lines"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="PerBatchQty" NDType="java.lang.String"/>
+      <NamedData NDName="NumberOfBatches" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="ReCalculate_Fields"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="ReCalculate_Fields"
+                  IsViewObjectMethod="false"/>
+    <methodAction id="setSessionValues"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="setSessionValues"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="orgId" NDValue="#{viewScope.OrgId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="userId" NDValue="#{viewScope.UserId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="respId" NDValue="#{viewScope.RespId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="respAppl" NDValue="#{viewScope.RespApplId}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="MnjMfgWashRecipeHView1Iterator" id="UnitName">
+      <AttrNames>
+        <Item Value="UnitName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgWashRecipeHView1Iterator" id="Comments">
+      <AttrNames>
+        <Item Value="Comments"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgWashRecipeHView1Iterator"
+                     id="RecipePreparer">
+      <AttrNames>
+        <Item Value="RecipePreparer"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgWashRecipeHView1Iterator"
+                     id="CustomerId">
+      <AttrNames>
+        <Item Value="CustomerId"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="Qty_Calculation"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="Qty_Calculation"
+                  IsViewObjectMethod="false"/>
+    <methodAction id="Fabric_Type_H"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="Fabric_Type_H"
+                  IsViewObjectMethod="false"/>
+    <methodAction id="DeleteChemicals"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="DeleteChemicals"
+                  IsViewObjectMethod="false"/>
+    <methodAction id="DeleteOperations"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="DeleteOperations"
+                  IsViewObjectMethod="false"/>
+    <methodAction id="DeleteSubProcess"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="DeleteSubProcess"
+                  IsViewObjectMethod="false"/>
+    <methodAction id="validateIssueRecDate"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="validateIssueRecDate"
+                  IsViewObjectMethod="false"/>
+    <methodAction id="CopyCreation"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="CopyCreation"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.AppModuleDataControl.methodResults.CopyCreation_AppModuleDataControl_dataProvider_CopyCreation_result"/>
+    <attributeValues IterBinding="MnjMfgWashRecipeHView1Iterator" id="Season">
+      <AttrNames>
+        <Item Value="Season"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgWashRecipeHView1Iterator" id="Style">
+      <AttrNames>
+        <Item Value="Style"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgWashRecipeHView1Iterator" id="Color">
+      <AttrNames>
+        <Item Value="Color"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues StaticList="false"
+                  IterBinding="MnjMfgWashRecipeHView1Iterator"
+                  Uses="LOV_SystemId" id="SystemId"/>
+    <attributeValues IterBinding="MnjMfgWashRecipeHView1Iterator" id="WashName">
+      <AttrNames>
+        <Item Value="WashName"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MnjMfgSubProcessVO"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  RowClass="mnj.mfg.model.views.MnjMfgSubProcessVORowImpl"
+  ComponentClass="mnj.mfg.model.views.MnjMfgSubProcessVOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <SQLQuery>
+    <![CDATA[SELECT MnjMfgSubProcessEO.SUB_DETAIL_ID, 
+       MnjMfgSubProcessEO.LINE_ID, 
+       MnjMfgSubProcessEO.SUB_PROCESS, 
+       MnjMfgSubProcessEO.Remarks
+FROM MNJ_MFG_WASH_RECIPE_SUB_PROC MnjMfgSubProcessEO]]>
+  </SQLQuery>
+  <EntityUsage
+    Name="MnjMfgSubProcessEO"
+    Entity="mnj.mfg.model.entities.MnjMfgSubProcessEO"/>
+  <ViewAttribute
+    Name="SubDetailId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SubDetailId"
+    EntityUsage="MnjMfgSubProcessEO"
+    AliasName="SUB_DETAIL_ID"/>
+  <ViewAttribute
+    Name="LineId"
+    PrecisionRule="true"
+    EntityAttrName="LineId"
+    EntityUsage="MnjMfgSubProcessEO"
+    AliasName="LINE_ID"/>
+  <ViewAttribute
+    Name="SubProcess"
+    PrecisionRule="true"
+    EntityAttrName="SubProcess"
+    EntityUsage="MnjMfgSubProcessEO"
+    AliasName="SUB_PROCESS"/>
+  <ViewAttribute
+    Name="Remarks"
+    PrecisionRule="true"
+    AliasName="REMARKS"
+    EntityAttrName="Remarks"
+    EntityUsage="MnjMfgSubProcessEO"/>
+</ViewObject>

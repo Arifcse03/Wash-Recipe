@@ -1,0 +1,1028 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MnjMfgWashRecipeHView"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Variable
+    Name="p_recipe_no"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="p_org"
+    Kind="where"
+    Type="java.lang.String">
+    <TransientExpression><![CDATA[adf.context.sessionScope.orgId]]></TransientExpression>
+  </Variable>
+  <ViewAccessor
+    Name="orderVo1"
+    ViewObjectName="mnj.mfg.model.lov.views.orderVo"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="STNVo1"
+    ViewObjectName="mnj.mfg.model.lov.views.STNVo">
+    <ViewCriteriaUsage
+      Name="STNVoCriteria"
+      FullName="mnj.mfg.model.lov.views.STNVo.STNVoCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="p_headeiD">
+        <TransientExpression><![CDATA[SaleOrderId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="SearchLOV1"
+    ViewObjectName="mnj.mfg.model.lov.views.SearchLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="WashReceiptTypeVO1"
+    ViewObjectName="mnj.mfg.model.lov.views.WashReceiptTypeVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="WashSampleTypeVO1"
+    ViewObjectName="mnj.mfg.model.lov.views.WashSampleTypeVO">
+  
+  </ViewAccessor>
+  <ViewAccessor
+    Name="WashShadeVO1"
+    ViewObjectName="mnj.mfg.model.lov.views.WashShadeVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="StnNewVO1"
+    ViewObjectName="mnj.mfg.model.lov.views.StnNewVO">
+    <ParameterMap>
+      <PIMap Variable="P_BPO">
+        <TransientExpression><![CDATA[Bp0]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="system_id_LOV1"
+    ViewObjectName="mnj.mfg.model.lov.views.system_id_LOV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_OrderNumber"
+    ListVOName="orderVo1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_OrderNumber_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="OrderNumber"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="SaleOrderId"/>
+      <Item Value="CustomerId"/>
+      <Item Value="CustomerName"/>
+      <Item Value="OrgId"/>
+      <Item Value="Brand"/>
+      <Item Value="Division"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CustPoNumber"/>
+      <Item Value="HeaderId"/>
+      <Item Value="BuyerId"/>
+      <Item Value="BuyerName"/>
+      <Item Value="OrgId"/>
+      <Item Value="BrandC"/>
+      <Item Value="StyleNoC"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CustPoNumber"/>
+      <Item Value="StyleNameC"/>
+      <Item Value="StyleNoC"/>
+      <Item Value="SeasonC"/>
+      <Item Value="BuyerName"/>
+      <Item Value="EndUserDescC"/>
+      <Item Value="BrandC"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"
+      Name="orderVoCriteria"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_StnNo"
+    ListVOName="StnNewVO1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_StnNo_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="StnNo"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Qty"/>
+      <Item Value="FebricType"/>
+      <Item Value="ActualReceiptQty"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Stn"/>
+      <Item Value="StnQty"/>
+      <Item Value="FabricType"/>
+      <Item Value="Quantity"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Stn"/>
+      <Item Value="Color"/>
+      <Item Value="StnQty"/>
+      <Item Value="Wash"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_SearchStn"
+    ListVOName="SearchLOV1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_SearchStn_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SearchStn"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="HeaderIdTemp"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="StnNo"/>
+      <Item Value="HeaderId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="StnNo"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_RecipeType"
+    ListVOName="WashReceiptTypeVO1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_RecipeType_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="RecipeType"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_SampleType"
+    ListVOName="WashSampleTypeVO1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_SampleType_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SampleType"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Shade"
+    ListVOName="WashShadeVO1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_Shade_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Shade"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Bp0"
+    ListVOName="orderVo1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_Bp0_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Bp0"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="SaleOrderId"/>
+      <Item Value="CustomerId"/>
+      <Item Value="CustomerName"/>
+      <Item Value="Brand"/>
+      <Item Value="Division"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CustPoNumber"/>
+      <Item Value="HeaderId"/>
+      <Item Value="BuyerId"/>
+      <Item Value="BuyerName"/>
+      <Item Value="BrandC"/>
+      <Item Value="EndUserDescC"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CustPoNumber"/>
+      <Item Value="BuyerName"/>
+      <Item Value="StyleNoC"/>
+      <Item Value="SeasonC"/>
+      <Item Value="BrandC"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_SystemId"
+    ListVOName="system_id_LOV1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_SystemId_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SystemId"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="CustomerId"/>
+      <Item Value="Season"/>
+      <Item Value="Style"/>
+      <Item Value="Color"/>
+      <Item Value="WashName"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="SystemId"/>
+      <Item Value="BuyerId"/>
+      <Item Value="Season"/>
+      <Item Value="Style"/>
+      <Item Value="Color"/>
+      <Item Value="WashName"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="SystemId"/>
+      <Item Value="BuyerId"/>
+      <Item Value="Season"/>
+      <Item Value="Style"/>
+      <Item Value="Color"/>
+      <Item Value="WashName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <SQLQuery>
+    <![CDATA[SELECT distinct
+       MnjMfgWashRecipeH.HEADER_ID,
+       MnjMfgWashRecipeH.DOC_NUMBER,
+       MnjMfgWashRecipeH.DOC_DATE,
+       MnjMfgWashRecipeH.SALE_ORDER_ID,
+       MnjMfgWashRecipeH.SO_LINE_ID,
+    
+       MnjMfgWashRecipeH.CUSTOMER_ID,
+       MnjMfgWashRecipeH.BRAND,
+       MnjMfgWashRecipeH.QTY,
+       MnjMfgWashRecipeH.RECIPE_TYPE,
+       MnjMfgWashRecipeH.SAMPLE_TYPE,
+       MnjMfgWashRecipeH.SHADE,
+       MnjMfgWashRecipeH.Stn_No,
+       MnjMfgWashRecipeH.ORG_ID,
+       MnjMfgWashRecipeH.Per_Batch_Weight,
+       MnjMfgWashRecipeH.Workable_Quantity,
+       MnjMfgWashRecipeH.Excess_Cutting_Percent,
+       MnjMfgWashRecipeH.Febric_Type,
+       (select ooha.cust_po_number
+          FROM OE_ORDER_HEADERS_ALL OOHA
+         WHERE OOHA.HEADER_ID = MnjMfgWashRecipeH.Sale_Order_Id) ORDER_NUMBER,
+       (select A.CUSTOMER_NAME
+          FROM AR_CUSTOMERS A
+         WHERE A.CUSTOMER_ID = MnjMfgWashRecipeH.Customer_Id) CUSTOMER_NAME,
+        MnjMfgWashRecipeH.Number_Batches,
+        MnjMfgWashRecipeH.Per_Batch_Quantity,
+        MnjMfgWashRecipeH.Division,
+        null search_stn,
+        null header_id_temp,
+        MnjMfgWashRecipeH.BP0,
+       MnjMfgWashRecipeH.VERSION_NO,
+       MnjMfgWashRecipeH.VERSION_DATE,
+       MnjMfgWashRecipeH.actual_receipt_qty,
+       CASE WHEN MnjMfgWashRecipeH.VERSION_NO IS NULL THEN 'Original' ELSE TO_CHAR(MnjMfgWashRecipeH.VERSION_NO) END VARSION_NEW,
+ (SELECT LISTAGG (sl.shades, ',') WITHIN GROUP (ORDER BY sl.shades)
+  FROM MNJ_MFG_WASH_RECIPE_SHADE sl
+  WHERE sl.header_id = MnjMfgWashRecipeH.HEADER_ID)Shades_L,
+  MnjMfgWashRecipeH.Remarks,
+  MnjMfgWashRecipeH.LAST_UPDATE_DATE,
+  MnjMfgWashRecipeH.LAST_UPDATED_BY,
+  MnjMfgWashRecipeH.CREATION_DATE,
+  MnjMfgWashRecipeH.CREATED_BY,
+  MnjMfgWashRecipeH.Unit_Name,
+  MnjMfgWashRecipeH.Comments,
+  MnjMfgWashRecipeH.Recipe_Preparer,
+  NVL((SELECT DECODE(StyleLineEO.TRACK_BASIS,'Style Name',StyleLineEO.STYLE_NAME,'Style Number',StyleLineEO.STYLE_NUMBER)
+       FROM PWC_MFG_BSS_STYLE_L StyleLineEO,
+            pwc_mfg_bss_buyer_h pwcmfgbssbuyerh,
+            PWC_MFG_BSS_SEASON_D SeasonDetailEO   
+       WHERE StyleLineEO.STYLE_IDENTIFIER = MnjMfgWashRecipeH.STYLE_NAME
+       AND   pwcmfgbssbuyerh.BUYER_ID = MnjMfgWashRecipeH.CUSTOMER_ID
+       --AND   pwcmfgbssbuyerh.ORG_ID = mmoda.final_mfg_org_id
+       AND   StyleLineEO.HEADER_ID = pwcmfgbssbuyerh.HEADER_ID
+       AND   SeasonDetailEO.LINE_ID = StyleLineEO.LINE_ID 
+       AND   rownum = 1),MnjMfgWashRecipeH.STYLE_NAME)Current_Style,
+       NVL((SELECT SeasonDetailEO.SEASON_NAME
+       FROM PWC_MFG_BSS_STYLE_L StyleLineEO,
+            pwc_mfg_bss_buyer_h pwcmfgbssbuyerh,
+            PWC_MFG_BSS_SEASON_D SeasonDetailEO   
+       WHERE StyleLineEO.STYLE_IDENTIFIER = MnjMfgWashRecipeH.STYLE_NAME
+       AND   pwcmfgbssbuyerh.BUYER_ID = MnjMfgWashRecipeH.CUSTOMER_ID
+       --AND   pwcmfgbssbuyerh.ORG_ID = mmoda.final_mfg_org_id
+       and   SeasonDetailEO.SEASON_NAME = MnjMfgWashRecipeH.SEASON
+       AND   StyleLineEO.HEADER_ID = pwcmfgbssbuyerh.HEADER_ID
+       AND   SeasonDetailEO.LINE_ID = StyleLineEO.LINE_ID 
+       AND   rownum = 1),MnjMfgWashRecipeH.SEASON) Current_Season,
+	   MnjMfgWashRecipeH.system_id,
+	   v.poc_id,
+	   v.buyer_id,
+	   v.season,
+	   v.style,
+	   v.color,
+	   v.wash_name
+  FROM MNJ_MFG_WASH_RECIPE_H MnjMfgWashRecipeH,xx_order_info_v v
+where MnjMfgWashRecipeH.ORG_ID =  :p_org
+       and MnjMfgWashRecipeH.SYSTEM_ID= v.SYSTEM_ID
+order by MnjMfgWashRecipeH.HEADER_ID desc,
+         MnjMfgWashRecipeH.DOC_NUMBER desc]]>
+  </SQLQuery>
+  <EntityUsage
+    Name="MnjMfgWashRecipeH"
+    Entity="mnj.mfg.model.entities.MnjMfgWashRecipeH"/>
+  <ViewAttribute
+    Name="HeaderId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="HeaderId"
+    EntityUsage="MnjMfgWashRecipeH"
+    AliasName="HEADER_ID"/>
+  <ViewAttribute
+    Name="DocNumber"
+    PrecisionRule="true"
+    EntityAttrName="DocNumber"
+    EntityUsage="MnjMfgWashRecipeH"
+    AliasName="DOC_NUMBER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="mnj.mfg.model.views.MnjMfgWashRecipeHView.DocNumber_LABEL"/>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DocDate"
+    PrecisionRule="true"
+    EntityAttrName="DocDate"
+    EntityUsage="MnjMfgWashRecipeH"
+    AliasName="DOC_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SaleOrderId"
+    PrecisionRule="true"
+    EntityAttrName="SaleOrderId"
+    EntityUsage="MnjMfgWashRecipeH"
+    AliasName="SALE_ORDER_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SoLineId"
+    PrecisionRule="true"
+    EntityAttrName="SoLineId"
+    EntityUsage="MnjMfgWashRecipeH"
+    AliasName="SO_LINE_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+
+  <ViewAttribute
+    Name="CustomerId"
+    PrecisionRule="true"
+    EntityAttrName="CustomerId"
+    EntityUsage="MnjMfgWashRecipeH"
+    AliasName="CUSTOMER_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Brand"
+    PrecisionRule="true"
+    EntityAttrName="Brand"
+    EntityUsage="MnjMfgWashRecipeH"
+    AliasName="BRAND">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  
+  <ViewAttribute
+    Name="Qty"
+    PrecisionRule="true"
+    EntityAttrName="Qty"
+    EntityUsage="MnjMfgWashRecipeH"
+    AliasName="QTY">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RecipeType"
+    PrecisionRule="true"
+    EntityAttrName="RecipeType"
+    EntityUsage="MnjMfgWashRecipeH"
+    AliasName="RECIPE_TYPE"
+    LOVName="LOV_RecipeType">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SampleType"
+    PrecisionRule="true"
+    EntityAttrName="SampleType"
+    EntityUsage="MnjMfgWashRecipeH"
+    AliasName="SAMPLE_TYPE"
+    LOVName="LOV_SampleType">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Shade"
+    PrecisionRule="true"
+    EntityAttrName="Shade"
+    EntityUsage="MnjMfgWashRecipeH"
+    AliasName="SHADE"
+    LOVName="LOV_Shade">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="StnNo"
+    PrecisionRule="true"
+    EntityAttrName="StnNo"
+    EntityUsage="MnjMfgWashRecipeH"
+    AliasName="STN_NO"
+    LOVName="LOV_StnNo">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OrgId"
+    PrecisionRule="true"
+    EntityAttrName="OrgId"
+    EntityUsage="MnjMfgWashRecipeH"
+    AliasName="ORG_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PerBatchWeight"
+    PrecisionRule="true"
+    AliasName="PER_BATCH_WEIGHT"
+    EntityAttrName="PerBatchWeight"
+    EntityUsage="MnjMfgWashRecipeH">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="WorkableQuantity"
+    PrecisionRule="true"
+    AliasName="WORKABLE_QUANTITY"
+    EntityAttrName="WorkableQuantity"
+    EntityUsage="MnjMfgWashRecipeH">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ExcessCuttingPercent"
+    PrecisionRule="true"
+    AliasName="EXCESS_CUTTING_PERCENT"
+    EntityAttrName="ExcessCuttingPercent"
+    EntityUsage="MnjMfgWashRecipeH">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  
+ 
+  <ViewAttribute
+    Name="FebricType"
+    PrecisionRule="true"
+    AliasName="FEBRIC_TYPE"
+    EntityAttrName="FebricType"
+    EntityUsage="MnjMfgWashRecipeH">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OrderNumber"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ORDER_NUMBER"
+    Expression="ORDER_NUMBER"
+    SQLType="VARCHAR"
+    LOVName="LOV_OrderNumber"
+    Precision="50">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CustomerName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CUSTOMER_NAME"
+    Expression="CUSTOMER_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="NumberBatches"
+    PrecisionRule="true"
+    EntityAttrName="NumberBatches"
+    EntityUsage="MnjMfgWashRecipeH"
+    AliasName="NUMBER_BATCHES">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PerBatchQuantity"
+    PrecisionRule="true"
+    EntityAttrName="PerBatchQuantity"
+    EntityUsage="MnjMfgWashRecipeH"
+    AliasName="PER_BATCH_QUANTITY">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Division"
+    PrecisionRule="true"
+    AliasName="DIVISION"
+    EntityAttrName="Division"
+    EntityUsage="MnjMfgWashRecipeH">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SearchStn"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SEARCH_STN"
+    Expression="SEARCH_STN"
+    SQLType="VARCHAR"
+    LOVName="LOV_SearchStn">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="HeaderIdTemp"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="HEADER_ID_TEMP"
+    Expression="HEADER_ID_TEMP"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Bp0"
+    PrecisionRule="true"
+    EntityAttrName="Bp0"
+    EntityUsage="MnjMfgWashRecipeH"
+    AliasName="BP0"
+    LOVName="LOV_Bp0">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="VersionNo"
+    PrecisionRule="true"
+    AliasName="VERSION_NO"
+    EntityAttrName="VersionNo"
+    EntityUsage="MnjMfgWashRecipeH"/>
+  <ViewAttribute
+    Name="VersionDate"
+    PrecisionRule="true"
+    AliasName="VERSION_DATE"
+    EntityAttrName="VersionDate"
+    EntityUsage="MnjMfgWashRecipeH"/>
+  <ViewAttribute
+    Name="ActualReceiptQty"
+    PrecisionRule="true"
+    EntityAttrName="ActualReceiptQty"
+    EntityUsage="MnjMfgWashRecipeH"
+    AliasName="ACTUAL_RECEIPT_QTY"/>
+  <ViewAttribute
+    Name="VarsionNew"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="40"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VARSION_NEW"
+    Expression="VARSION_NEW"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="40"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ShadesL"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SHADES_L"
+    Expression="SHADES_L"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Remarks"
+    PrecisionRule="true"
+    AliasName="REMARKS"
+    EntityAttrName="Remarks"
+    EntityUsage="MnjMfgWashRecipeH"/>
+  <ViewAttribute
+    Name="LastUpdateDate"
+    PrecisionRule="true"
+    AliasName="LAST_UPDATE_DATE"
+    EntityAttrName="LastUpdateDate"
+    EntityUsage="MnjMfgWashRecipeH"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    AliasName="LAST_UPDATED_BY"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="MnjMfgWashRecipeH"/>
+  <ViewAttribute
+    Name="CreationDate"
+    PrecisionRule="true"
+    AliasName="CREATION_DATE"
+    EntityAttrName="CreationDate"
+    EntityUsage="MnjMfgWashRecipeH"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    PrecisionRule="true"
+    AliasName="CREATED_BY"
+    EntityAttrName="CreatedBy"
+    EntityUsage="MnjMfgWashRecipeH"/>
+  <ViewAttribute
+    Name="UnitName"
+    PrecisionRule="true"
+    AliasName="UNIT_NAME"
+    EntityAttrName="UnitName"
+    EntityUsage="MnjMfgWashRecipeH"/>
+  <ViewAttribute
+    Name="Comments"
+    PrecisionRule="true"
+    AliasName="COMMENTS"
+    EntityAttrName="Comments"
+    EntityUsage="MnjMfgWashRecipeH">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="35"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RecipePreparer"
+    PrecisionRule="true"
+    AliasName="RECIPE_PREPARER"
+    EntityAttrName="RecipePreparer"
+    EntityUsage="MnjMfgWashRecipeH"/>
+  <ViewAttribute
+    Name="CurrentStyle"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="500"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CURRENT_STYLE"
+    Expression="CURRENT_STYLE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CurrentSeason"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="1000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CURRENT_SEASON"
+    Expression="CURRENT_SEASON"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1000"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SystemId"
+    PrecisionRule="true"
+    EntityAttrName="SystemId"
+    EntityUsage="MnjMfgWashRecipeH"
+    AliasName="SYSTEM_ID"
+    LOVName="LOV_SystemId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PocId"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="POC_ID"
+    Expression="POC_ID"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BuyerId"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="BUYER_ID"
+    Expression="BUYER_ID"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Season"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SEASON"
+    Expression="SEASON"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Style"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="STYLE"
+    Expression="STYLE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Color"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="COLOR"
+    Expression="COLOR"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="WashName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="WASH_NAME"
+    Expression="WASH_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="SimpleSearch"
+    ViewObjectName="mnj.mfg.model.views.MnjMfgWashRecipeHView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="vcrow16"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="DocNumber"
+        ViewAttribute="DocNumber"
+        Operator="="
+        Conjunction="AND"
+        Value=":p_recipe_no"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewLinkAccessor
+    Name="MnjMfgWashRecipeLView"
+    ViewLink="mnj.mfg.model.views.MnjMfgWashRecipeLFkLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="MnjMfgShadeLVO"
+    ViewLink="mnj.mfg.model.views.MnjMfgWashRecipeShadeFkLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ValidateDateIssueRecFrm"
+    ViewLink="mnj.mfg.model.views.WashRecipeHValidateVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="mnj.mfg.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

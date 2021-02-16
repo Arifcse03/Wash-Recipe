@@ -1,0 +1,35 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">Query</property>
+      <property
+         name="page">/Query.jspx</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Query&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">212.29883</property>
+      <property
+         name="x">317.0</property>
+   </View>
+   <View
+      id="View4">
+      <property
+         name="activityId">CreatePG</property>
+      <property
+         name="page">/CreatePG.jspx</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>CreatePG&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">213.14355</property>
+      <property
+         name="x">556.0</property>
+   </View>
+</SDM>

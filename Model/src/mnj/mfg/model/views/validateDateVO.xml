@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="validateDateVO"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="mnj.mfg.model.views.validateDateVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="P_BUYER"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="P_Color"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="P_SEASON"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="P_STYLE"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <SQLQuery>
+    <![CDATA[SELECT DISTINCT NewHeaderEO.IR_HEADER_ID,
+       NewHeaderEO.DOCUMENT_DATE,
+       HeaderEO.ATTRIBUTE5 BUYER,
+       HeaderEO.STYLE_NAME,
+       HeaderEO.SEASON,
+       MNJ_ISSUE_REC_WASH_REC_L_EO.ATTRIBUTE3 COLOR,
+       HeaderEO.BUYER_ID 
+FROM MNJ_MFG_WASH_IR_H NewHeaderEO,
+     MNJ_MFG_ISSUE_REC_WASH_H HeaderEO,
+     MNJ_ISSUE_REC_WASH_REC_L MNJ_ISSUE_REC_WASH_REC_L_EO
+WHERE   NewHeaderEO.IR_HEADER_ID = HeaderEO.IR_HEADER_ID
+AND     MNJ_ISSUE_REC_WASH_REC_L_EO.HEADER_ID = HeaderEO.HEADER_ID
+AND     NewHeaderEO.DOCUMENT_DATE = (SELECT  MAX(NewHeaderEO1.DOCUMENT_DATE)
+                                       FROM MNJ_MFG_WASH_IR_H NewHeaderEO1,
+                                            MNJ_MFG_ISSUE_REC_WASH_H HeaderEO1,
+                                            MNJ_ISSUE_REC_WASH_REC_L MNJ_ISSUE_REC_WASH_REC_L_EO1
+                                       WHERE   NewHeaderEO1.IR_HEADER_ID = HeaderEO1.IR_HEADER_ID
+                                        AND     MNJ_ISSUE_REC_WASH_REC_L_EO1.HEADER_ID = HeaderEO1.HEADER_ID
+                                        AND       HeaderEO1.ATTRIBUTE5 = HeaderEO.ATTRIBUTE5
+                                        AND       HeaderEO1.STYLE_NAME = HeaderEO.STYLE_NAME
+                                        AND       HeaderEO.SEASON = HeaderEO1.SEASON
+                                        AND       MNJ_ISSUE_REC_WASH_REC_L_EO1.ATTRIBUTE3 = MNJ_ISSUE_REC_WASH_REC_L_EO.ATTRIBUTE3)
+/*AND rownum = 1*/
+ORDER BY    NewHeaderEO.IR_HEADER_ID]]>
+  </SQLQuery>
+  <ViewAttribute
+    Name="IrHeaderId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="IR_HEADER_ID"
+    Expression="IR_HEADER_ID"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DocumentDate"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    AliasName="DOCUMENT_DATE"
+    Expression="DOCUMENT_DATE"
+    SQLType="TIMESTAMP">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Buyer"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="250"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="BUYER"
+    Expression="BUYER"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="250"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="StyleName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="500"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="STYLE_NAME"
+    Expression="STYLE_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Season"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="500"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SEASON"
+    Expression="SEASON"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Color"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="250"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="COLOR"
+    Expression="COLOR"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="250"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BuyerId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="BUYER_ID"
+    Expression="BUYER_ID"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="validateDateVOCriteria"
+    ViewObjectName="mnj.mfg.model.views.validateDateVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="vcrow6"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="validateDateVOCriteria_vcrow6_Buyer"
+        ViewAttribute="Buyer"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_BUYER"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="StyleName"
+        ViewAttribute="StyleName"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_STYLE"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Season"
+        ViewAttribute="Season"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_SEASON"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="validateDateVOCriteria_vcrow6_Color"
+        ViewAttribute="Color"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_Color"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="mnj.mfg.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MnjMfgWashRecipeShadeFkLink"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  EntityAssociation="mnj.mfg.model.entities.MnjMfgWashRecipeShadeFkAssoc">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewLinkDefEnd
+    Name="MnjMfgWashRecipeHView"
+    Cardinality="1"
+    Owner="mnj.mfg.model.views.MnjMfgWashRecipeHView"
+    Source="true">
+    <DesignTime>
+      <Attr Name="_finderName" Value="MnjMfgWashRecipeHView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="mnj.mfg.model.views.MnjMfgWashRecipeHView.HeaderId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="MnjMfgShadeLVO"
+    Cardinality="-1"
+    Owner="mnj.mfg.model.views.MnjMfgShadeLVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="MnjMfgShadeLVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="mnj.mfg.model.views.MnjMfgShadeLVO.HeaderId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>
