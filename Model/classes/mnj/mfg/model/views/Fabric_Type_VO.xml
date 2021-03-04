@@ -22,7 +22,7 @@
   <SQLQuery>
     <![CDATA[select distinct l.fabric_desc Fabric_Type
 from XX_OM_POC_H_T H, XX_OM_POC_L_T l
-where h.header_id = l.header_id
+where h.poc_id = l.poc_id
 and L.system_id=:1/*updated by wasi sir*/]]>
   </SQLQuery>
   <ViewAttribute

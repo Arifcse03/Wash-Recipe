@@ -939,7 +939,7 @@ public class Main {
             bindingContextt.findDataControl("AppModuleDataControl"); //
         ApplicationModule am = dc2.getApplicationModule();
         ViewObject vo = am.findViewObject("MnjMfgWashRecipeHView1");
-        vo.clearCache();
+       // vo.clearCache();
 
         
         

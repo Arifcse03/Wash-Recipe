@@ -1027,7 +1027,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             Style = null;
             e.printStackTrace();
         }
-
+/*
         try {
             Style = vo.getCurrentRow().getAttribute("Style").toString();
         } catch (Exception e) {
@@ -1070,7 +1070,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         }
 
         System.out.println("Parameters for Quantity are..............." +
-                           Style + Season + BuyerID + Wash + Color+"  "+systemid);
+                           Style + Season + BuyerID + Wash + Color+"  "+systemid);*/
         ViewObject populatevo = getQuanity_Calculation_VO1(); // Populate VO
         populatevo.setWhereClause(null);
        /* populatevo.setWhereClauseParam(0, Style);
