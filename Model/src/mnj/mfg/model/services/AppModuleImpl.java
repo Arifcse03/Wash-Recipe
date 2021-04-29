@@ -1024,7 +1024,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
            systemid = vo.getCurrentRow().getAttribute("SystemId").toString();
         } catch (Exception e) {
             // TODO: Add catch code
-            Style = null;
+            systemid = null;
             e.printStackTrace();
         }
 /*
@@ -1073,6 +1073,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                            Style + Season + BuyerID + Wash + Color+"  "+systemid);*/
         ViewObject populatevo = getQuanity_Calculation_VO1(); // Populate VO
         populatevo.setWhereClause(null);
+        populatevo.clearCache();
        /* populatevo.setWhereClauseParam(0, Style);
         populatevo.setWhereClauseParam(1, Season);
         populatevo.setWhereClauseParam(2, BuyerID);
@@ -1114,7 +1115,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             vo.getCurrentRow().setAttribute("FebricType", nullcondition);
         }
         getDBTransaction().commit();
-        vo.executeQuery();
+       
 
     } //populate Lines
 
@@ -1188,7 +1189,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         vo.getCurrentRow().setAttribute("FebricType",
                                         populatevo.getCurrentRow().getAttribute("FabricType"));
         getDBTransaction().commit();
-        vo.executeQuery();
+       
     }
 
     protected Object callStoredFunction(int sqlReturnType, String stmt,

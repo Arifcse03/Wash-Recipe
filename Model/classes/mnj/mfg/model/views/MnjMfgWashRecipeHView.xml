@@ -360,15 +360,16 @@
        AND   SeasonDetailEO.LINE_ID = StyleLineEO.LINE_ID 
        AND   rownum = 1),MnjMfgWashRecipeH.SEASON) Current_Season,
 	   MnjMfgWashRecipeH.system_id,
-	   v.poc_id,
-	   v.buyer_id,
-	   v.season,
-	   v.style,
-	   v.color,
-	   v.wash_name
-  FROM MNJ_MFG_WASH_RECIPE_H MnjMfgWashRecipeH,xx_order_info_v v
+	   ph.poc_id,
+       ph.buyer_id,
+       ph.season,
+       ph.style,
+       pl.color,
+       pl.wash_name
+  FROM MNJ_MFG_WASH_RECIPE_H MnjMfgWashRecipeH,xx_om_poc_h_t ph, xx_om_poc_l_t pl
 where MnjMfgWashRecipeH.ORG_ID =  :p_org
-       and MnjMfgWashRecipeH.SYSTEM_ID= v.SYSTEM_ID
+       and MnjMfgWashRecipeH.SYSTEM_ID= pl.SYSTEM_ID
+       and ph.poc_id=pl.poc_id
 order by MnjMfgWashRecipeH.HEADER_ID desc,
          MnjMfgWashRecipeH.DOC_NUMBER desc]]>
   </SQLQuery>

@@ -930,16 +930,18 @@ public class Main {
     }
 
     public void Save() {
-        BindingContainer bindings = getBindings();
-        OperationBinding result = bindings.getOperationBinding("Commit");
-        result.execute();
-        
         BindingContext bindingContextt = BindingContext.getCurrent();
         DCDataControl dc2 =
             bindingContextt.findDataControl("AppModuleDataControl"); //
         ApplicationModule am = dc2.getApplicationModule();
-        ViewObject vo = am.findViewObject("MnjMfgWashRecipeHView1");
-       // vo.clearCache();
+        
+        BindingContainer bindings = getBindings();
+        OperationBinding result = bindings.getOperationBinding("Commit");
+        result.execute();
+        
+        
+      
+       
 
         
         
